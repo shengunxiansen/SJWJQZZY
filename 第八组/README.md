@@ -1,15 +1,18 @@
 -期中作业
 =========
+小组成员：韩旭、侯涛、李炜、廖文利、任宇、孙琛凯、谢俊章、谢雨、杨尚林、尹麟名(字母排序）
+-------
 # (数据选取为绵阳市某时段人流情况)
-# 摘要
 # 一、数据样本
 本次数据分析使用的数据如下的395条数据。
     kml_e	kml_s	Lng	Lat	Lng_e	Lat_e	count
 终点编号	起点编号	起点经度	起点纬度	终点经度	终点纬度	轨迹条数
+
 ![数据样本.png](https://github.com/shengunxiansen/Test/raw/master/数据样本.png)
 # 二、数据处理
-## 分析
-### 点聚类
+## 算法
+使用K-means算法对起点和终点聚类
+### 1、点聚类
 #### 代码
 ```
 library(RgoogleMaps)
@@ -36,9 +39,9 @@ MapBackground(lat,lng, destfile ="bckg",maptype ="terrain")
 doubs.map <- ReadMapTile(destfile = "bckg")
 # 绘制地图
 PlotOnStaticMap(doubs.map,lat,lng,cex = 1.0,col = origdata.kmeans$cluster,pch = 19)
-# 绘制起点坐标点
+# 绘制起点聚类
 PlotOnStaticMap(doubs.map,lat,lng,cex = 1.0,add=TRUE,col = origdata.kmeans$cluster,pch = 19)
-# 绘制终点坐标
+# 绘制终点聚类
 PlotOnStaticMap(doubs.map,lat_e,lng_e,cex = 1.0,add=TRUE,col = descdata.kmeans$cluster,pch = 19)
 ```
 #### 起点聚类
@@ -47,9 +50,9 @@ PlotOnStaticMap(doubs.map,lat_e,lng_e,cex = 1.0,add=TRUE,col = descdata.kmeans$c
 #### 终点聚类
 ![终点聚类.png](https://github.com/shengunxiansen/Test/raw/master/终点聚类.png)
 
-### OD线聚类
-#### 分析
-
+### 2、OD线聚类
+#### 算法
+使用K-means算法对线的中心点位置聚类
 #### 代码
 ```
 library(leaflet)
