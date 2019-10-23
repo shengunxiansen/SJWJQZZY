@@ -1,13 +1,14 @@
 -期中作业
 =========
-小组成员：韩旭、侯涛、李炜、廖文利、任宇、孙琛凯、谢俊章、谢雨、杨尚林、尹麟名(字母排序）
+小组成员：韩旭、侯涛、李炜、廖文利、任宇、孙琛恺、谢俊章、谢雨、杨尚林、尹麟名(字母排序）
 -------
 # (数据选取为绵阳市某时段人流情况)
 # 一、数据样本
 本次数据分析使用的数据如下的395条数据。
+```
     kml_e	kml_s	Lng	Lat	Lng_e	Lat_e	count
 终点编号	起点编号	起点经度	起点纬度	终点经度	终点纬度	轨迹条数
-
+```
 ![数据样本.png](https://github.com/shengunxiansen/Test/raw/master/数据样本.png)
 # 二、数据处理
 ## 算法
@@ -45,21 +46,30 @@ PlotOnStaticMap(doubs.map,lat,lng,cex = 1.0,add=TRUE,col = origdata.kmeans$clust
 PlotOnStaticMap(doubs.map,lat_e,lng_e,cex = 1.0,add=TRUE,col = descdata.kmeans$cluster,pch = 19)
 ```
 #### 起点聚类
+
 ![起点聚类.png](https://github.com/shengunxiansen/Test/raw/master/起点聚类.png)
+
 将起点数据使用K-means算法聚为了五类，分别用红、绿、深蓝、浅蓝、黑表示。
 培城区（红色）
 游仙区（黑色）
 元通村至培城区部分（深蓝色）
 西南科技大学、西南财经大学天府校区附件（浅蓝色）
 元通村至永兴（绿色）
+
 #### 终点聚类
 ![终点聚类.png](https://github.com/shengunxiansen/Test/raw/master/终点聚类.png)
+
 终点数据同样使用k-means算法聚为了五类，分别使用红、绿、深蓝、浅蓝、黑表示。
 科学城（浅蓝色）
 培城区（红色）
 元通村（绿色）
 安州区（黑色）
 永兴（深蓝色）
+
+#### 结论
+
+根据聚类可以看出游仙区和培城区人口密度高的地区点比较密集，而安州区、永兴、元通村附近人口较少，因此点比较稀疏。
+
 ### 2、OD线聚类
 #### 算法
 使用K-means算法对线的中心点位置聚类
@@ -91,10 +101,6 @@ for (i in 1:nrow(ViewData)) {
 map<-addCircleMarkers(map,lng = ViewData$Lng_e,lat = ViewData$Lat_e,color = 'red',radius = ViewData$count/5)
 map
 ```
-![OD线聚类.png](https://github.com/shengunxiansen/SJWJQZZY/blob/patch-2/第七组/OD线聚类.png)
+![OD线聚类.png](https://github.com/shengunxiansen/Test/raw/master/OD线聚类.png)
 OD线聚类使用的是K-means算法对线的中心点聚类，共聚为5类，分别使用红、绿、蓝、黄、黑表示。
 使用终点标记的大小表示轨迹条数的多少。
-
-# 三、
-```
-```
