@@ -26,12 +26,12 @@ library(mapdata)
 mydata<-read.table(header=T,file="df3.csv",sep=",")
 # 获取起点坐标并使用k-means算法聚类
 origdata<-mydata[,5:6]
-origdata.kmeans<-kmeans(origdata,3)
+origdata.kmeans<-kmeans(origdata,5)
 lng <- mydata[,5]
 lat <- mydata[,6]
 # 获取终点坐标并使用k-means算法聚类
 descdata<-mydata[,7:8]
-descdata.kmeans<-kmeans(descdata,3)
+descdata.kmeans<-kmeans(descdata,5)
 lng_e<-mydata[,7]
 lat_e<-mydata[,8]
 # 设置背景
@@ -46,10 +46,20 @@ PlotOnStaticMap(doubs.map,lat_e,lng_e,cex = 1.0,add=TRUE,col = descdata.kmeans$c
 ```
 #### 起点聚类
 ![起点聚类.png](https://github.com/shengunxiansen/Test/raw/master/起点聚类.png)
-
+将起点数据使用K-means算法聚为了五类，分别用红、绿、深蓝、浅蓝、黑表示。
+培城区（红色）
+游仙区（黑色）
+元通村至培城区部分（深蓝色）
+西南科技大学、西南财经大学天府校区附件（浅蓝色）
+元通村至永兴（绿色）
 #### 终点聚类
 ![终点聚类.png](https://github.com/shengunxiansen/Test/raw/master/终点聚类.png)
-
+终点数据同样使用k-means算法聚为了五类，分别使用红、绿、深蓝、浅蓝、黑表示。
+科学城（浅蓝色）
+培城区（红色）
+元通村（绿色）
+安州区（黑色）
+永兴（深蓝色）
 ### 2、OD线聚类
 #### 算法
 使用K-means算法对线的中心点位置聚类
@@ -82,6 +92,8 @@ map<-addCircleMarkers(map,lng = ViewData$Lng_e,lat = ViewData$Lat_e,color = 'red
 map
 ```
 ![OD线聚类.png](https://github.com/shengunxiansen/SJWJQZZY/blob/patch-2/第七组/OD线聚类.png)
+OD线聚类使用的是K-means算法对线的中心点聚类，共聚为5类，分别使用红、绿、蓝、黄、黑表示。
+使用终点标记的大小表示轨迹条数的多少。
 
 # 三、
 ```
