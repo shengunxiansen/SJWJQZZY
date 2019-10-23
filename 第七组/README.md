@@ -72,8 +72,7 @@ for (i in 1:nrow(ViewData)) {
 map<-addCircleMarkers(map,lng = ViewData$Lng_e,lat = ViewData$Lat_e,color = 'red',radius = ViewData$count/5)
 map
 ```
-![OD线聚类.png](https://github.com/shengunxiansen/SJWJQZZY/raw/patch-2/OD线聚类.png)
-
+![OD线聚类.png](https://github.com/shengunxiansen/SJWJQZZY/blob/patch-2/第七组/OD线聚类.png)
 # 二、数据样本
 本次数据分析使用的数据如下的395条数据。
     kml_e	kml_s	Lng	Lat	Lng_e	Lat_e	count
